@@ -29,3 +29,6 @@ hs_err_pid*
 /cloud-config-server/target/
 /cloud-config-server/cloud-config-server.iml
 /spring-cloud.iml
+/cloud-eureka-client/cloud-eureka-client.iml
+/cloud-eureka-server/cloud-eureka-server.iml
+/cloud-eureka-client/target/
