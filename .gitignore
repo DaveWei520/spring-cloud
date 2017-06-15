@@ -32,3 +32,4 @@ hs_err_pid*
 /cloud-eureka-client/cloud-eureka-client.iml
 /cloud-eureka-server/cloud-eureka-server.iml
 /cloud-eureka-client/target/
+/cloud-ribbon/cloud-ribbon.iml
