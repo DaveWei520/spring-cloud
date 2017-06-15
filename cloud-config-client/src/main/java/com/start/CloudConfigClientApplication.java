@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class CloudConfigClientApplication {
-    @Value("${application.say:World!}")
-    String bar;
+    @Value("${message:World!}")
+    private String message;
 
     @RequestMapping("/")
     public String hello() {
-        return "Hello " + bar + "!";
+        return "Hello, " + message + "!";
     }
 
     public static void main(String[] args) {
