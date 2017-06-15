@@ -36,3 +36,5 @@ hs_err_pid*
 /cloud-ribbon/target/
 /cloud-feign/target/
 /cloud-feign/cloud-feign.iml
+/cloud-zuul/cloud-zuul.iml
+/cloud-zuul/target/
