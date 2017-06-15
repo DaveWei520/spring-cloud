@@ -15,7 +15,7 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 @SpringBootApplication(scanBasePackages = "com.weiyu")
 @EnableDiscoveryClient
 @EnableFeignClients(basePackages = "com.weiyu")
-@EnableHystrix
+@EnableHystrix//添加此项才可以使用hystrix-dashboard的monitor
 @EnableHystrixDashboard
 public class CloudFeignApplication {
     public static void main(String[] args) {
