@@ -34,3 +34,5 @@ hs_err_pid*
 /cloud-eureka-client/target/
 /cloud-ribbon/cloud-ribbon.iml
 /cloud-ribbon/target/
+/cloud-feign/target/
+/cloud-feign/cloud-feign.iml
