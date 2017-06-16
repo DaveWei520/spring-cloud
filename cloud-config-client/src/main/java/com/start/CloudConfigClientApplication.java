@@ -12,7 +12,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication(scanBasePackages = "com.weiyu")
 @EnableEurekaClient
-@RefreshScope
 public class CloudConfigClientApplication {
 
     public static void main(String[] args) {
