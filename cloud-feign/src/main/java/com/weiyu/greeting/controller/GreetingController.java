@@ -20,4 +20,9 @@ public class GreetingController {
     public String hello(){
         return greetingService.hello();
     }
+
+    @RequestMapping(value = "/feign",method = RequestMethod.GET)
+    public String feign(){
+        return "this is feign";
+    }
 }

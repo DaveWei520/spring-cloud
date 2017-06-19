@@ -20,4 +20,9 @@ public class GreetingController {
     public String hello(){
         return greetingService.hello();
     }
+
+    @RequestMapping(value = "/ribbon",method = RequestMethod.GET)
+    public String ribbon(){
+        return "this is ribbon";
+    }
 }
