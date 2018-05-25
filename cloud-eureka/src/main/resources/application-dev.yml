@@ -1,0 +1,33 @@
+server:
+  port: 9050
+spring:
+  application:
+    name: cloud-eureka
+
+#关闭自我保护后可以剔除不可使用的实例
+#eureka:
+#  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 60000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: cloud-eureka
+  #声明该eureka为一个server
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url.defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka/
+
+endpoints:
+  refresh:
+    enabled: true
+    sensitive: false
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: admin
+    password: dw123456

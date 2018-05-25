@@ -1,0 +1,19 @@
+#配置文件dev|prod
+spring:
+  profiles:
+    active: @profileActive@
+
+#tomcat的URI编码
+server:
+  tomcat:
+    uri-encoding: UTF-8
+
+endpoints:
+  shutdown:
+    enabled: true #启用shutdown
+    sensitive: false #shutdown安全验证
+
+#logback配置信息
+logging:
+  config: classpath:@profileActive@/logback-spring.xml
+  path: /data/logs/cloud/cloud-eureka

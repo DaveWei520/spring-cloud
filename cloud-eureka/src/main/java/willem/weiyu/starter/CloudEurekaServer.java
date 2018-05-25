@@ -1,18 +1,19 @@
-package com.start;
+package willem.weiyu.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * @author weiyu@gomeholdings.com
+ * @author weiyu
  * @description
  * @create 2017/6/15
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "willem.weiyu.microService")
 @EnableEurekaServer
-public class CloudEurekaServerApplication {
+public class CloudEurekaServer {
+
     public static void main(String[] args) {
-        SpringApplication.run(CloudEurekaServerApplication.class,args);
+        SpringApplication.run(CloudEurekaServer.class,args);
     }
 }
