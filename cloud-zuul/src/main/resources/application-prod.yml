@@ -1,0 +1,50 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cloud-zuul
+
+#更改Eureka更新频率将打破服务器的自我保护功能,即可以剔除不可用实例
+#开启健康检查
+#eureka:
+#  client:
+#    healthcheck:
+#      enabled: true
+##租期更新时间间隔
+#eureka:
+#  instance:
+#    lease-renewal-interval-in-seconds: 30
+##租期到期时间
+#    lease-expiration-duration-in-seconds: 90
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:9050/eureka/
+
+#设置超时时间，防止超时
+zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+#解决com.netflix.zuul.exception.ZuulException: Forwarding error
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+#添加网管
+zuul:
+  add-host-header: true

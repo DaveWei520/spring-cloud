@@ -28,9 +28,7 @@ hs_err_pid*
 /cloud-config-client/target/
 /cloud-config-server/target/
 /cloud-config-server/cloud-config-server.iml
-/spring-cloud.iml
 /cloud-eureka-client/cloud-eureka-client.iml
-/cloud-eureka-server/cloud-eureka-server.iml
 /cloud-eureka-client/target/
 /cloud-ribbon/cloud-ribbon.iml
 /cloud-ribbon/target/
@@ -38,3 +36,6 @@ hs_err_pid*
 /cloud-feign/cloud-feign.iml
 /cloud-zuul/cloud-zuul.iml
 /cloud-zuul/target/
+/spring-cloud-learning.iml
+/cloud-eureka/target/
+/cloud-eureka/cloud-eureka.iml

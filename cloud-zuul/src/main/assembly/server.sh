@@ -5,17 +5,17 @@
 ##version       : v1.0
 ##date          : 2018-03-28 17:16
 ##copyright     : weiyu
-##description   : 微服务eureka启动脚本
-##usage         : eureka
+##description   : 服务zuul启动脚本
+##usage         : zuul
 ##history       : 第一版脚本，无历史
 
 cd `dirname $0`
-APP_NAME="cloud-eureka"
+APP_NAME="cloud-zuul"
 APP_LOCATION=`find /data/servers -name $APP_NAME`
 JAR_NAME=$APP_NAME-1.0.0.jar
 JAVA_OPTS=" -Xms256m -Xmx256m "
 psid=0
-
+  
 check() {
    javaps=`$JAVA_HOME/bin/jps -l | grep $APP_NAME`  
   

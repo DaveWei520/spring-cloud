@@ -4,6 +4,11 @@ import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author weiyu
+ * @description
+ * @create 2018/5/25
+ */
 @Component
 public class EurekaStateListener {
 
