@@ -22,7 +22,6 @@ spring:
 ##租期到期时间
 #    lease-expiration-duration-in-seconds: 90
 
-
 eureka:
   instance:
     #向eureka服务注册时，使用ip地址
