@@ -16,6 +16,7 @@
         <module>cloud-eureka</module>
         <module>cloud-feign</module>
         <module>cloud-ribbon</module>
+        <module>cloud-zuul</module>
     </modules>
 
     <parent>
