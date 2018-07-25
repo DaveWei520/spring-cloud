@@ -2,11 +2,30 @@
 spring:
   profiles:
     active: @profileActive@
+  application:
+    name: cloud-eureka
 
 #tomcat的URI编码
 server:
   tomcat:
     uri-encoding: UTF-8
+  port: 9050
+
+#关闭自我保护后可以剔除不可使用的实例
+#eureka:
+#  server:
+#    enable-self-preservation: false
+#    eviction-interval-timer-in-ms: 60000
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: cloud-eureka
+  #声明该eureka为一个server
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url.defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka/
 
 endpoints:
   shutdown:

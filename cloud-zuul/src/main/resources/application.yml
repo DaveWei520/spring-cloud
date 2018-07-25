@@ -2,25 +2,76 @@
 spring:
   profiles:
     active: @profileActive@
+  application:
+    name: cloud-zuul
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true #开启负载均衡的重试机制
 
 #tomcat的URI编码
 server:
   tomcat:
     uri-encoding: UTF-8
+  port: 8080
+
+#更改Eureka更新频率将打破服务器的自我保护功能,即可以剔除不可用实例
+#开启健康检查
+#eureka:
+#  client:
+#    healthcheck:
+#      enabled: true
+##租期更新时间间隔
+#eureka:
+#  instance:
+#    lease-renewal-interval-in-seconds: 30
+##租期到期时间
+#    lease-expiration-duration-in-seconds: 90
+
+eureka:
+  instance:
+    #向eureka服务注册时，使用ip地址
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:9050/eureka/
 
 endpoints:
   shutdown:
     enabled: true #启用shutdown
     sensitive: false #shutdown安全验证
 
-#路由设置
+
 zuul:
   prefix: /micro/api
-  routes:
+  routes: #路由设置,可配置多路由
     micro:
       path: /micro/**
       serviceId: cloud-feign
       stripPrefix: false
+  add-host-header: true #添加网管
+  host:
+    socket-timeout-millis: 30000
+    connect-timeout-millis: 30000
+  retryable: true #zuul重试机制
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000 #断路器的超时时间需大于ribbon的超时时间，不然不会触发重试
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 1
 
 #logback配置信息
 logging:

@@ -1,81 +1,93 @@
 #!/bin/bash
 
-##file name     : server.sh
+##file name     : setenv.sh
 ##author        : weiyu
 ##version       : v1.0
-##date          : 2018-03-28 17:16
-##copyright     : weiyu
-##description   : 微服务eureka启动脚本
-##usage         : eureka
+##date          : 2018-07-16 13:34:00
+##copyright     : willem
+##description   : spring-cloud-learning
+##usage         : spring-cloud-learning
 ##history       : 第一版脚本，无历史
 
 cd `dirname $0`
-APP_NAME="cloud-eureka"
-APP_LOCATION=`find /data/servers -name $APP_NAME`
-JAR_NAME=$APP_NAME-1.0.0.jar
+BIN_DIR=`pwd`
+cd ..
+DEPLOY_DIR=`pwd`
 JAVA_OPTS=" -Xms256m -Xmx256m "
-psid=0
+PIDS=0
+
+if [ -r "$DEPLOY_DIR"/bin/setenv.sh ]; then
+    . "$DEPLOY_DIR"/bin/setenv.sh
+else
+    echo "cannot find $DEPLOY_DIR/bin/setenv.sh"
+    echo "this file is needed to run this program"
+    exit 1
+fi
+
+getPid(){
+    PIDS=`ps -ef | grep java | grep "$MAIN_JAR" |awk '{print $2}'`
+    if [ -z "$PIDS" ]; then
+        PIDS=0
+    fi
+}
 
 check() {
-   javaps=`$JAVA_HOME/bin/jps -l | grep $APP_NAME`  
-  
-   if [ -n "$javaps" ]; then  
-      psid=`echo $javaps | awk '{print $1}'`  
-   else  
-      psid=0  
-   fi  
+    getPid
+    if [ $PIDS -ne 0 ]; then
+        echo "ERROR: The $SERVER_NAME already started!"
+        echo "PID: $PIDS"
+        exit 1
+    fi
+    if [ -n "$SERVER_PORT" ]; then
+        SERVER_PORT_COUNT=`netstat -tln | grep ":$SERVER_PORT " | wc -l`
+        if [ $SERVER_PORT_COUNT -gt 0 ]; then
+            echo "ERROR: The $SERVER_NAME port $SERVER_PORT already used!"
+            exit 1
+        fi
+    fi
 }
 
 start() {  
    check
-  
-   if [ $psid -ne 0 ]; then  
-      echo "================================"  
-      echo "warn: $APP_NAME already started! (pid=$psid)"  
-      echo "================================"  
+   echo -n "Starting $SERVER_NAME ..."  
+   nohup $JAVA_HOME/bin/java -jar $JAVA_OPTS $LIB_DIR/$MAIN_JAR >/dev/null 2>&1 &
+   getPid
+   if [ $PIDS -ne 0 ]; then
+      echo "(pid=$PIDS) [OK]"
    else  
-      echo -n "Starting $APP_NAME ..."  
-      nohup $JAVA_HOME/bin/java -jar $JAVA_OPTS $APP_LOCATION/lib/$JAR_NAME >/dev/null 2>&1 &
-      check
-      if [ $psid -ne 0 ]; then  
-         echo "(pid=$psid) [OK]"  
-      else  
-         echo "[Failed]"  
-      fi  
+      echo "[Failed]"  
    fi  
 }
 
 
 stop() {
-   check
-
-   if [ $psid -ne 0 ]; then
-      echo -n "Stopping $APP_NAME ...(pid=$psid) "
-      kill -9 $psid
+   getPid
+   if [ $PIDS -ne 0 ]; then
+      echo -n "Stopping $SERVER_NAME ...(pid=$PIDS) "
+      kill -9 $PIDS
       if [ $? -eq 0 ]; then
          echo "[OK]"
       else
          echo "[Failed]"
       fi
 
-      check
-      if [ $psid -ne 0 ]; then
+      getPid
+      if [ $PIDS -ne 0 ]; then
          stop
       fi
    else
       echo "================================"
-      echo "warn: $APP_NAME is not running"
+      echo "warn: $SERVER_NAME is stopped"
       echo "================================"
    fi
 }
 
 status() {  
-   check
-  
-   if [ $psid -ne 0 ];  then  
-      echo "$APP_NAME is running! (pid=$psid)"  
+   getPid 
+   if [ $PIDS -ne 0 ];  then
+      echo "$SERVER_NAME is running! (pid=$PIDS)"
    else  
-      echo "$APP_NAME is not running"  
+      echo "$SERVER_NAME is not running"  
    fi  
 }
 
@@ -93,7 +105,7 @@ case "$1" in
    'status')  
      status  
      ;;    
-  *)  
+   *)
      echo "Usage: $0 {start|stop|restart|status}"  
      exit 1  
 esac  
