@@ -1,4 +1,4 @@
-package willem.weiyu.microService.listener;
+package willem.weiyu.cloud.listener;
 
 import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;

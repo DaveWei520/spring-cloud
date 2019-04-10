@@ -3,7 +3,7 @@ spring:
   profiles:
     active: @profileActive@
   application:
-    name: cloud-eureka
+    name: cloud-eureka-server
 
 #tomcat的URI编码
 server:
@@ -20,11 +20,11 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: cloud-eureka
+    hostname: cloud-eureka-server
   client: #声明该eureka为一个server
     register-with-eureka: false
     fetch-registry: false
-    service-url.defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka/
+    service-url.defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
 
 endpoints:
   shutdown:
