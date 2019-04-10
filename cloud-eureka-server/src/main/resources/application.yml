@@ -34,4 +34,4 @@ endpoints:
 #logback配置信息
 logging:
   config: classpath:@profileActive@/logback-spring.xml
-  path: /data/logs/cloud/cloud-eureka
+  path: /data/logs/cloud/cloud-eureka-server
