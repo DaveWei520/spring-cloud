@@ -1,4 +1,0 @@
-endpoints:
-  refresh:
-    enabled: true
-    sensitive: false

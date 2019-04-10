@@ -24,12 +24,8 @@ eureka:
   client: #声明该eureka为一个server
     register-with-eureka: false
     fetch-registry: false
-    service-url.defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
-
-endpoints:
-  shutdown:
-    enabled: true #启用shutdown
-    sensitive: false #shutdown安全验证
+    service-url:
+      defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
 
 #logback配置信息
 logging:
