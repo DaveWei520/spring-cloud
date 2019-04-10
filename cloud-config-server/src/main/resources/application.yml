@@ -1,0 +1,12 @@
+#配置文件dev|prod
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: cloud-config-server
+
+#tomcat的URI编码
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8888
