@@ -71,7 +71,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.cloud.starter.CloudEurekaServer</mainClass>
+                            <mainClass>willem.weiyu.cloud.CloudEurekaServer</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>

@@ -1,4 +1,4 @@
-package willem.weiyu.cloud.starter;
+package willem.weiyu.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @description
  * @create 2017/6/15
  */
-@SpringBootApplication(scanBasePackages = "willem.weiyu.cloud")
+@SpringBootApplication
 @EnableEurekaServer
 public class CloudEurekaServer {
 

@@ -1,4 +1,4 @@
-package willem.weiyu.cloud.starter;
+package willem.weiyu.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
  * @Description
  * @Date 2019/4/11 12:20
  */
-@SpringBootApplication(scanBasePackages = "willem.weiyu.cloud")
+@SpringBootApplication
 @EnableEurekaClient
 @EnableTurbine
 @EnableHystrixDashboard

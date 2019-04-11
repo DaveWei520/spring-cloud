@@ -87,7 +87,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.cloud.starter.CloudServiceProvider</mainClass>
+                            <mainClass>willem.weiyu.cloud.CloudServiceProvider</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>

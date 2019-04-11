@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author weiyu@gomeholdings.com
+ * @author weiyu
  * @description
  * @create 2017/6/16
  */
 @RestController
-@RefreshScope//将次标签使用在需要刷新处
+/**将次标签使用在需要刷新处*/
+@RefreshScope
 public class GreetingController {
     @Value("${message:World!}")
     private String message;

@@ -1,4 +1,4 @@
-package willem.weiyu.cloud.starter;
+package willem.weiyu.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @description
  * @create 2017/6/15
  */
-@SpringBootApplication(scanBasePackages = "willem.weiyu.cloud")
+@SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "willem.weiyu.cloud")
+@EnableFeignClients
 /**添加此项才可以使用hystrix-dashboard的monitor*/
 @EnableHystrix
 public class CloudFeignClient {

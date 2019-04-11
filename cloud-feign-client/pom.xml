@@ -86,7 +86,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.cloud.starter.CloudFeignClient</mainClass>
+                            <mainClass>willem.weiyu.cloud.CloudFeignClient</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>

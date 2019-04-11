@@ -81,7 +81,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.cloud.starter.CloudZuulServer</mainClass>
+                            <mainClass>willem.weiyu.cloud.CloudZuulServer</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>
