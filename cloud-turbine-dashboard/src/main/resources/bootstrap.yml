@@ -16,13 +16,4 @@ turbine:
   aggregator:
     cluster-config: default
   cluster-name-expression: "'default'"
-  #app-config-list: cloud-feign-client, cloud-service-provider, cloud-zuul
   app-config: cloud-feign-client
-  instanceUrlSuffix:
-    default: actuator/hystrix.stream
-
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: '*'
