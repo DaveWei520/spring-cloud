@@ -1,0 +1,28 @@
+#tomcatµÄURI±àÂë
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8060
+
+
+#ÅäÖÃÎÄ¼þdev|prod
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: cloud-feign
+
+feign:
+  hystrix:
+    enabled: true
+
+ribbon:
+  ReadTimeout:  30000
+  ConnectTimeout:  15000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

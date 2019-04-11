@@ -13,8 +13,9 @@
         <module>cloud-eureka-server</module>
         <module>cloud-config-server</module>
         <module>cloud-config-client</module>
-        <!--<module>cloud-feign</module>
-        <module>cloud-ribbon</module>
+        <module>cloud-feign</module>
+        <module>cloud-service-provider</module>
+        <!--<module>cloud-ribbon</module>
         <module>cloud-zuul</module>-->
     </modules>
 
@@ -67,6 +68,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
@@ -76,12 +83,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
