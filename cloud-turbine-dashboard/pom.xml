@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>willem.weiyu.cloud</groupId>
         <artifactId>spring-cloud-learning</artifactId>
+        <groupId>willem.weiyu.cloud</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-feign-client</artifactId>
+    <artifactId>cloud-turbine-dashboard</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -20,17 +20,18 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+        </dependency>
+
+        <!--聚合监控-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
         </dependency>
     </dependencies>
 
@@ -86,7 +87,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.cloud.starter.CloudFeignClient</mainClass>
+                            <mainClass>willem.weiyu.cloud.starter.CloudServiceProvider</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>
@@ -98,7 +99,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <finalName>cloud-config-server</finalName>
+                    <finalName>cloud-service-provider</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                     <descriptors>
                         <descriptor>src/main/assembly/assembly.xml</descriptor>

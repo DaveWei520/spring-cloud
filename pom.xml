@@ -17,6 +17,7 @@
         <module>cloud-service-provider</module>
         <!--<module>cloud-ribbon</module>-->
         <module>cloud-zuul</module>
+        <module>cloud-turbine-dashboard</module>
     </modules>
 
     <parent>

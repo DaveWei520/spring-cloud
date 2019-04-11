@@ -25,4 +25,11 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 1000
+
+#新版配置，否则后面dashboard无法找到hystrix.stream
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
