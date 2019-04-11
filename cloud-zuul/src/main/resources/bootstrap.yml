@@ -28,15 +28,6 @@ server:
 ##租期到期时间
 #    lease-expiration-duration-in-seconds: 90
 
-eureka:
-  instance:
-    #向eureka服务注册时，使用ip地址
-    prefer-ip-address: true
-    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
-  client:
-    service-url:
-      defaultZone: http://localhost:9050/eureka/
-
 endpoints:
   shutdown:
     enabled: true #启用shutdown
@@ -46,9 +37,9 @@ endpoints:
 zuul:
   prefix: /micro/api
   routes: #路由设置,可配置多路由
-    micro:
-      path: /micro/**
-      serviceId: cloud-feign
+    index:
+      path: /index/**
+      serviceId: cloud-feign-client
       stripPrefix: false
   add-host-header: true #添加网管
   host:

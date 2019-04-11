@@ -1,4 +1,4 @@
-package com.weiyu.greeting.controller;
+package willem.weiyu.cloud.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

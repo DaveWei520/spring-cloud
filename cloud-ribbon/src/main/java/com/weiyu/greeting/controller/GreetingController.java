@@ -1,4 +1,4 @@
-package com.weiyu.greeting.controller;
+package willem.weiyu.cloud.controller;
 
 import com.weiyu.greeting.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;

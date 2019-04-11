@@ -1,4 +1,4 @@
-package willem.weiyu.microService.filter;
+package willem.weiyu.cloud.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;

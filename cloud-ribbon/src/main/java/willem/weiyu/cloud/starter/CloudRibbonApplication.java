@@ -1,4 +1,4 @@
-package willem.weiyu.starter;
+package willem.weiyu.cloud.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<parent>
-        <groupId>willem.weiyu.microService</groupId>
+        <groupId>willem.weiyu.cloud</groupId>
         <artifactId>spring-cloud-learning</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -13,9 +13,14 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zuul</artifactId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
 		</dependency>
 
 		<dependency>
@@ -35,7 +40,7 @@
             </properties>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/resources/application-dev.yml</filter>
+                    <filter>${basedir}/src/main/resources/bootstrap-dev.yml</filter>
                 </filters>
             </build>
         </profile>
@@ -50,7 +55,7 @@
             </properties>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/resources/application-prod.yml</filter>
+                    <filter>${basedir}/src/main/resources/bootstrap-prod.yml</filter>
                 </filters>
             </build>
         </profile>
@@ -62,8 +67,8 @@
                 <filtering>true</filtering>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>application.yml</include>
-                    <include>application-${profileActive}.yml</include>
+                    <include>bootstrap.yml</include>
+                    <include>bootstrap-${profileActive}.yml</include>
                     <include>${profileActive}/*</include>
                 </includes>
             </resource>
@@ -76,7 +81,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>willem.weiyu.starter.CloudZuulServer</mainClass>
+                            <mainClass>willem.weiyu.cloud.starter.CloudZuulServer</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>./</classpathPrefix>
                         </manifest>
