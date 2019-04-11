@@ -7,7 +7,13 @@ spring:
           username:
           password:
           search-paths: config-repo
-      label: master
+    bus:
+      trace:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: 10.26.27.81:9092
 
 eureka:
   client:

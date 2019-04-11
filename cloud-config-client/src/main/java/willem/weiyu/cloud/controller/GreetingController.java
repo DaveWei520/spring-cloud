@@ -1,4 +1,4 @@
-package com.weiyu.greeting.controller;
+package willem.weiyu.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

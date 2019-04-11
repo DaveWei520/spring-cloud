@@ -10,3 +10,9 @@ server:
   tomcat:
     uri-encoding: UTF-8
   port: 8888
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

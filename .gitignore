@@ -37,5 +37,6 @@ hs_err_pid*
 /cloud-zuul/cloud-zuul.iml
 /cloud-zuul/target/
 /spring-cloud-learning.iml
-/cloud-eureka/target/
-/cloud-eureka/cloud-eureka.iml
+/cloud-eureka-server/cloud-eureka.iml
+/cloud-eureka-server/cloud-eureka-server.iml
+/cloud-eureka-server/target/

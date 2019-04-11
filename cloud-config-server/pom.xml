@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>willem.weiyu.cloud</groupId>
@@ -22,6 +22,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
+
+        <!--利用kafka实现配置动态刷新-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-kafka</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>
@@ -35,7 +41,7 @@
             </properties>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/resources/application-dev.yml</filter>
+                    <filter>${basedir}/src/main/resources/bootstrap-dev.yml</filter>
                 </filters>
             </build>
         </profile>
@@ -50,7 +56,7 @@
             </properties>
             <build>
                 <filters>
-                    <filter>${basedir}/src/main/resources/application-prod.yml</filter>
+                    <filter>${basedir}/src/main/resources/bootstrap-prod.yml</filter>
                 </filters>
             </build>
         </profile>
@@ -62,8 +68,8 @@
                 <filtering>true</filtering>
                 <directory>src/main/resources</directory>
                 <includes>
-                    <include>application.yml</include>
-                    <include>application-${profileActive}.yml</include>
+                    <include>bootstrap.yml</include>
+                    <include>bootstrap-${profileActive}.yml</include>
                     <include>${profileActive}/*</include>
                 </includes>
             </resource>

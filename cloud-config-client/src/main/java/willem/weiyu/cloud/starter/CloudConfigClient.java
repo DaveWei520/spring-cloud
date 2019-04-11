@@ -1,4 +1,4 @@
-package willem.weiyu.starter;
+package willem.weiyu.cloud.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +9,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * @description
  * @create 2017/6/14
  */
-@SpringBootApplication(scanBasePackages = "com.weiyu")
+@SpringBootApplication(scanBasePackages = "willem.weiyu.cloud")
 @EnableEurekaClient
-public class CloudConfigClientApplication {
+public class CloudConfigClient {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudConfigClientApplication.class,args);
+        SpringApplication.run(CloudConfigClient.class,args);
     }
 }

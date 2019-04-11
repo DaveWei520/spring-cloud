@@ -1,0 +1,26 @@
+#配置文件dev|prod
+spring:
+  profiles:
+    active: @profileActive@
+  application:
+    name: cloud-config-client
+  cloud:
+    config:
+      discovery:
+        service-id: cloud-config-server
+        enabled: true
+      #profile: dev
+      label: master
+    bus:
+      trace:
+        enabled: true
+    stream:
+      kafka:
+        binder:
+          brokers: 10.26.27.81
+
+#tomcat的URI编码
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8881
