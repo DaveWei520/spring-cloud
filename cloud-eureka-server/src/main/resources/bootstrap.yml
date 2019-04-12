@@ -20,9 +20,8 @@ server:
 eureka:
   instance:
     prefer-ip-address: true
-    hostname: cloud-eureka-server
-  client: #声明该eureka为一个server
-    register-with-eureka: false
+  client:
+    register-with-eureka: false #声明该eureka为一个server
     fetch-registry: false
     service-url:
       defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
