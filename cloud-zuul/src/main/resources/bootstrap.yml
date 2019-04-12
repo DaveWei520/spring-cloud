@@ -15,6 +15,11 @@ server:
     uri-encoding: UTF-8
   port: 8080
 
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
 #更改Eureka更新频率将打破服务器的自我保护功能,即可以剔除不可用实例
 #开启健康检查
 #eureka:
@@ -27,12 +32,6 @@ server:
 #    lease-renewal-interval-in-seconds: 30
 ##租期到期时间
 #    lease-expiration-duration-in-seconds: 90
-
-endpoints:
-  shutdown:
-    enabled: true #启用shutdown
-    sensitive: false #shutdown安全验证
-
 
 zuul:
   prefix: /micro/api

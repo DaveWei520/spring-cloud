@@ -1,11 +1,11 @@
-#tomcat的URI编码
+#tomcat鐨刄RI缂栫爜
 server:
   tomcat:
     uri-encoding: UTF-8
   port: 8060
 
 
-#配置文件dev|prod
+#閰嶇疆鏂囦欢dev|prod
 spring:
   profiles:
     active: @profileActive@
@@ -27,9 +27,14 @@ hystrix:
           thread:
             timeoutInMilliseconds: 1000
 
-#新版配置，否则后面dashboard无法找到hystrix.stream
+#鏂扮増閰嶇疆锛屽惁鍒欏悗闈ashboard鏃犳硶鎵惧埌hystrix.stream
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}

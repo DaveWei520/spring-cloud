@@ -17,3 +17,8 @@ turbine:
     cluster-config: default
   cluster-name-expression: "'default'"
   app-config: cloud-feign-client
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}

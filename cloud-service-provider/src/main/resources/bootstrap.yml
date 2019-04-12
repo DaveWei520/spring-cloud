@@ -10,3 +10,8 @@ server:
   tomcat:
     uri-encoding: UTF-8
   port: 8981
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}

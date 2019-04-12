@@ -11,8 +11,14 @@ server:
     uri-encoding: UTF-8
   port: 8888
 
+#允许调用/actuator/bus-refresh刷新配置
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    prefer-ip-address: true
