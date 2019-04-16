@@ -4,6 +4,14 @@ spring:
     active: @profileActive@
   application:
     name: cloud-stream
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 10.26.27.81:9092
+          min-partition-count: 1
+          auto-create-topics: true
+          auto-add-partitions: false
 
 #tomcat的URI编码
 server:
