@@ -30,8 +30,8 @@
             <directory>src/main/resources</directory>
             <outputDirectory>/conf</outputDirectory>
             <includes>
-                <include>bootstrap.yml</include>
-                <include>bootstrap-${profileActive}.yml</include>
+                <include>application.yml</include>
+                <include>application-${profileActive}.yml</include>
                 <include>${profileActive}/*</include>
             </includes>
             <fileMode>0644</fileMode>

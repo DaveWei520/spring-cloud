@@ -39,6 +39,3 @@ hs_err_pid*
 /cloud-service-provider/target/
 /cloud-feign-client/target/
 /cloud-zuul/target/
-/cloud-trace-server/cloud-trace-server.iml
-/cloud-stream/cloud-stream.iml
-/cloud-stream/target/
