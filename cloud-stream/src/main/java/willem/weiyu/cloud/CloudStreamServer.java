@@ -12,7 +12,6 @@ import willem.weiyu.cloud.stream.GreetingStream;
  * @Date 2019/4/15 16:05
  */
 @SpringBootApplication
-@EnableBinding(GreetingStream.class)
 public class CloudStreamServer {
 
     public static void main(String[] args) {

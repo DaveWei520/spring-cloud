@@ -2,11 +2,13 @@ package willem.weiyu.cloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Mono;
 import willem.weiyu.cloud.bean.Greeting;
+import willem.weiyu.cloud.sender.Sender;
 import willem.weiyu.cloud.service.GreetingService;
 
 /**
@@ -18,12 +20,12 @@ import willem.weiyu.cloud.service.GreetingService;
 @RequestMapping("/greeting")
 public class GreetingController {
     @Autowired
-    private GreetingService greetingService;
+    private Sender sender;
 
-    @GetMapping("/hi")
-    public Mono<Void> hi(String message){
+    @GetMapping("/hi/{message}")
+    public Mono<Void> hi(@PathVariable String message){
         Greeting greeting = Greeting.builder().message(message).timestamp(System.currentTimeMillis()).build();
-        greetingService.sendMessage(greeting);
+        sender.sendMessage(greeting);
         return Mono.empty();
     }
 }
