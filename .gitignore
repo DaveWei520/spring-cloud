@@ -28,7 +28,6 @@ hs_err_pid*
 /cloud-config-client/target/
 /cloud-config-server/target/
 /cloud-config-server/cloud-config-server.iml
-/cloud-ribbon/cloud-ribbon.iml
 /cloud-zuul/cloud-zuul.iml
 /spring-cloud-learning.iml
 /cloud-eureka-server/cloud-eureka-server.iml
@@ -43,3 +42,4 @@ hs_err_pid*
 /cloud-dataflow/cloud-dataflow.iml
 /cloud-admin-server/cloud-admin-server.iml
 /cloud-admin-server/target/
+/cloud-stream/target/
