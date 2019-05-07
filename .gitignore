@@ -41,3 +41,5 @@ hs_err_pid*
 /cloud-zuul/target/
 /cloud-stream/cloud-stream.iml
 /cloud-dataflow/cloud-dataflow.iml
+/cloud-admin-server/cloud-admin-server.iml
+/cloud-admin-server/target/

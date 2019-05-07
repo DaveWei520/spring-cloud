@@ -26,7 +26,17 @@ eureka:
     service-url:
       defaultZone: http://${spring.cloud.client.ip-address}:${server.port}/eureka/
 
+
 #logback配置信息
 logging:
   config: classpath:@profileActive@/logback-spring.xml
   path: /data/logs/cloud/cloud-eureka-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

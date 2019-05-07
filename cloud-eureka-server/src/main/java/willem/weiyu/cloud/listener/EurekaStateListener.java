@@ -8,14 +8,17 @@ import org.springframework.stereotype.Component;
 
 import com.netflix.appinfo.InstanceInfo;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author weiyu
  * @description 监听事件相关行为
  * @create 2018/5/25
  */
 @Component
+@Slf4j
 public class EurekaStateListener {
-    private static Logger LOG = LoggerFactory.getLogger(EurekaStateListener.class);
+    
     @EventListener
     public void listen(EurekaInstanceCanceledEvent event) {
         //服务下线事件
