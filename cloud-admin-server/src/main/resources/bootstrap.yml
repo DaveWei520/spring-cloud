@@ -8,22 +8,29 @@ spring:
     user:
       name: "admin"
       password: "admin"
+  boot:
+    admin:
+      ui:
+        #修改网页显示的tab标题
+        title: "应用监控管理"
+        #修改网页的brand图标和标题
+        brand: "<img src='assets/img/icon-spring-boot-admin.svg'><span>应用监控管理</span>"
 
 #tomcat的URI编码
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8888
+  port: 8688
 
 eureka:
   client:
     registry-fetch-interval-seconds: 5
-    service-url:
-      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:9050}/eureka/
     instance:
       leaseRenewalIntervalInSeconds: 10
       health-check-url-path: /actuator/health
   instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
     metadata-map:
       user.name: ${spring.security.user.name}
       user.password: ${spring.security.user.password}
