@@ -45,6 +45,9 @@ zuul:
     socket-timeout-millis: 30000
     connect-timeout-millis: 30000
   retryable: true #zuul重试机制
+  ribbon:
+    eager-load:
+      enabled: true #解决首次请求时间过长
 
 hystrix:
   command:
