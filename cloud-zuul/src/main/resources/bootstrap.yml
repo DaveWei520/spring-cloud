@@ -60,11 +60,11 @@ hystrix:
             timeoutInMilliseconds: 60000 #断路器的超时时间需大于ribbon的超时时间，不然不会触发重试
 
 ribbon:
-  ReadTimeout: 5000
-  ConnectTimeout: 5000
-  OkToRetryOnAllOperations: true
-  MaxAutoRetries: 1
-  MaxAutoRetriesNextServer: 1
+  ReadTimeout: 5000 #处理超时时间
+  ConnectTimeout: 5000 #连接超时时间
+  OkToRetryOnAllOperations: true #对所有的操作请求都进行重试，如果是get则可以，如果是post,put等操作没有实现幂等的情况下是很危险的
+  MaxAutoRetries: 1 #最大重试次数
+  MaxAutoRetriesNextServer: 1 #切换示例从事次数
 
 #logback配置信息
 logging:
