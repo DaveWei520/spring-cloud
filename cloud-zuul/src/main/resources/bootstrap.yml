@@ -49,6 +49,7 @@ zuul:
     eager-load:
       enabled: true #解决首次请求时间过长
 
+#断路器超时时间(N+1)*(ReadTimeout+(MaxAutoRetries*ReadTimeout)),N为MaxAutoRetriesNextServer
 hystrix:
   command:
     default:
@@ -59,6 +60,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 60000 #断路器的超时时间需大于ribbon的超时时间，不然不会触发重试
 
+#重试次数为MaxAutoRetries+MaxAutoRetriesNextServer+(MaxAutoRetries*MaxAutoRetriesNextServer)
 ribbon:
   ReadTimeout: 5000 #处理超时时间
   ConnectTimeout: 5000 #连接超时时间
