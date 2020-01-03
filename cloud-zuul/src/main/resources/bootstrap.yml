@@ -7,7 +7,7 @@ spring:
   cloud:
     loadbalancer:
       retry:
-        enabled: true #开启负载均衡的重试机制
+        enabled: true #开启客户端负载均衡，高版本默认开启
 
 #tomcat的URI编码
 server:
